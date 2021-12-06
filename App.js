@@ -17,11 +17,11 @@ export default function App() {
 
   const Stack = createStackNavigator();
 
-  const [examples, setExamples] = useState([]);
+  const [Form, setForm] = useState([]);
   const [id, setId] = useState(0);
   const remove = (index) => {
-    let tempArray = examples.filter(entry => entry.index != index);
-    setExamples(tempArray);
+    let tempArray = Form.filter(entry => entry.index != index);
+    setForm(tempArray);
   };
 
 
@@ -46,14 +46,14 @@ export default function App() {
       <Button
        title="RSVP"
         onPress={() => {
-        let tempArray = examples.concat({index: id});
+        let tempArray = Form.concat({index: id});
         setId(id + 1);
-        setExamples(tempArray);
+        setForm(tempArray);
        
       }} />
       
       {
-        examples.map((entry) => {
+        Form.map((entry) => {
           return <RSVP index={entry.index} remove={remove} key={entry.index} />
         })
       }
